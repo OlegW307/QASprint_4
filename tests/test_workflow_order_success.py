@@ -1,5 +1,4 @@
 import allure
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,12 +6,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from pages.order_page import OrderPage
 
 
-@allure.description('Тест для браузера хром ')
-def test_order_input():
-    driver = webdriver.Chrome()
-    driver.maximize_window()  # для отображения всех позиций
-    driver.get("https://qa-scooter.praktikum-services.ru/order")
-    order_page = OrderPage(driver)
+@allure.description('Тест для браузера Chrome ')
+def test_order_input(browser):
+    browser.get("https://qa-scooter.praktikum-services.ru/order")
+    order_page = OrderPage(browser)
     order_page.remove_cookies()
     order_page.enter_name()
     order_page.enter_surname()
@@ -26,11 +23,10 @@ def test_order_input():
     order_page.enter_comment()
     order_page.click_order_button()
     order_page.click_confirm_order_button()
-    element = WebDriverWait(driver, 10).until(
+    element = WebDriverWait(browser, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "div.Order_ModalHeader__3FDaJ"))
     )
     assert "Заказ оформлен" in element.text
     assert "Номер заказа:" in element.text
     assert "Запишите его" in element.text
 
-    driver.quit()

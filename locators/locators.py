@@ -5,6 +5,10 @@ class HomePageLocators:
     # вопросы о важном
     ACCORDION_SECTION = (By.XPATH, "//div[contains(text(), 'Вопросы о важном')]")
     ACCORDION_BUTTONS = (By.XPATH, "//div[contains(@id, 'accordion__heading-')]")
+
+    # single questions locators
+    SINGLE_BUTTONS = (By.XPATH, "//div[contains(@id, 'accordion__heading-')]")
+
     # кнопки заказать
     ORDER_TOP_BUTTON = (By.XPATH, "//button[contains(@class, 'Button_Button__ra12g') and text()='Заказать']")
     ORDER_MIDDLE_BUTTON = (By.CLASS_NAME, "Button_Button__ra12g.Button_UltraBig__UU3Lp")
@@ -32,8 +36,8 @@ class OrderPageLocators:
     BLACK_CHECKBOX = (By.XPATH, '//label[@for="black"]/input[@type="checkbox"]')
     GREY_CHECKBOX = (By.XPATH, '//label[@for="grey"]/input[@type="checkbox"]')
     COMMENT_INPUT = (By.XPATH, ".//input[@placeholder='Комментарий для курьера']")
-    ORDER_BUTTON = (By.XPATH, "/html/body/div/div/div[2]/div[3]/button[2]")
-    CONFIRM_BUTTON = (By.XPATH, "/html/body/div/div/div[2]/div[5]/div[2]/button[2]")
+    ORDER_BUTTON = (By.XPATH, "//button[contains(@class, 'Button_Button__ra12g Button_Middle__1CSJM') and text()='Заказать']")
+    CONFIRM_BUTTON = (By.XPATH, "//button[contains(@class, 'Button_Button__ra12g Button_Middle__1CSJM') and text()='Да']")
     ORDER_SUCCESS_MESSAGE = (By.CLASS_NAME, "Order_ModalHeader__3FDaJ")
 
     # логотипы

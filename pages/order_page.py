@@ -1,4 +1,5 @@
 import random
+import allure
 
 
 from generators import generate_name, generate_adress, generate_phone_number, date_to_order
@@ -12,6 +13,7 @@ class OrderPage:
     def open(self):
         self.driver.get("https://qa-scooter.praktikum-services.ru/order")
 
+    @allure.step('Убираем кнопкой плашку с Cookies')
     def remove_cookies(self):
         cookie_button_element = self.driver.find_element(*OrderPageLocators.COOKIES_BUTTON)
         cookie_button_element.click()
@@ -28,6 +30,7 @@ class OrderPage:
         address_input = self.driver.find_element(*OrderPageLocators.ADDRESS_INPUT)
         address_input.send_keys(generate_adress())
 
+    @allure.step('Выбираем рандомно станцию метро')
     def select_random_station(self):
         input_elem = self.driver.find_element(*OrderPageLocators.METRO_INPUT)
         input_elem.click()
