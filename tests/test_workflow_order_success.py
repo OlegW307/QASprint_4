@@ -13,7 +13,6 @@ def test_order_input():
     driver.maximize_window()  # для отображения всех позиций
     driver.get("https://qa-scooter.praktikum-services.ru/order")
     order_page = OrderPage(driver)
-
     order_page.remove_cookies()
     order_page.enter_name()
     order_page.enter_surname()
