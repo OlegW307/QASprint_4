@@ -17,7 +17,7 @@ class MainPage:
         accordion_section = self.driver.find_element(*HomePageLocators.ACCORDION_SECTION)
         self.driver.execute_script("arguments[0].scrollIntoView();", accordion_section)
 
-    @allure.step('Проверяем открытие одиного вопроса')
+    @allure.step('Проверяем открытие одного вопроса')
     def click_single_accordion_buttons(self):
         button = self.driver.find_element(*HomePageLocators.SINGLE_BUTTONS)
         button.click()
@@ -33,6 +33,8 @@ class MainPage:
             answer_id = button.get_attribute("aria-controls")
             answer = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.ID, answer_id)))
             print(answer.text)
+
+
 
 
     def switch_to_order_page_top(self):
