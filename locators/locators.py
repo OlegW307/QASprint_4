@@ -11,7 +11,7 @@ class HomePageLocators:
     SINGLE_BUTTONS = (By.XPATH, "//div[contains(@id, 'accordion__heading-')]")
 
     # кнопки заказать
-    ORDER_TOP_BUTTON = (By.XPATH, "//button[contains(@class, 'Button_Button__ra12g') and text()='Заказать']")
+    ORDER_BUTTON = (By.XPATH, "//button[contains(@class, 'Button_Button__') and contains(@class, 'Button_Middle__') and text()='Заказать']")
     ORDER_MIDDLE_BUTTON = (By.CLASS_NAME, "Button_Button__ra12g.Button_UltraBig__UU3Lp")
 
 
