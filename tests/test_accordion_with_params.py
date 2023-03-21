@@ -1,9 +1,10 @@
 import allure
 import pytest
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 from pages.start_page import MainPage
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 @allure.description('Отдельный тест на проверку открытия вопроса и печать ответа')
 @pytest.mark.parametrize("number", range(8))

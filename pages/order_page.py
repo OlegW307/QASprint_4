@@ -1,7 +1,6 @@
 import random
+
 import allure
-
-
 from generators import generate_name, generate_adress, generate_phone_number, date_to_order
 from locators.locators import OrderPageLocators
 

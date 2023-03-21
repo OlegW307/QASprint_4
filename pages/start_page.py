@@ -1,11 +1,9 @@
 import allure
-import pytest
-
+from locators.locators import HomePageLocators, OrderPageLocators
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-from selenium.webdriver.support import expected_conditions as EC
-from locators.locators import HomePageLocators, OrderPageLocators
 
 class MainPage:
     def __init__(self, driver):
@@ -44,7 +42,6 @@ class MainPage:
             answer_id = button.get_attribute("aria-controls")
             answer = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.ID, answer_id)))
             print(answer.text)
-
 
     def switch_to_order_page_top(self):
         button_switch = self.driver.find_element(*HomePageLocators.ORDER_TOP_BUTTON)

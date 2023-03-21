@@ -1,17 +1,15 @@
 import allure
 import pytest
+from pages.order_page import OrderPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-
-from pages.order_page import OrderPage
 
 
 @allure.description('Тест для браузера Chrome ')
 def test_order_input(browser):
     browser.get("https://qa-scooter.praktikum-services.ru/order")
     order_page = OrderPage(browser)
-    order_page.remove_cookies()
     order_page.enter_name()
     order_page.enter_surname()
     order_page.enter_address()
