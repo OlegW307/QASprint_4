@@ -18,4 +18,4 @@ def test_accordion_questions(browser, number):
     button.click()
     answer_id = button.get_attribute(HomePageLocators.ARIA_CONTROLS)
     answer = WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.ID, answer_id)))
-    print(answer.text)
+    assert answer.text != '', "Answer text is empty"
