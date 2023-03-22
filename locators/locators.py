@@ -6,6 +6,9 @@ class HomePageLocators:
     # вопросы о важном
     ACCORDION_SECTION = (By.XPATH, "//div[contains(text(), 'Вопросы о важном')]")
     ACCORDION_BUTTONS = (By.XPATH, "//div[contains(@id, 'accordion__heading-')]")
+    ACCORDION_HEADING = "//div[contains(@id, 'accordion__heading-{}')]"
+
+    ARIA_CONTROLS = "aria-controls"
 
     # single questions locators
     SINGLE_BUTTONS = (By.XPATH, "//div[contains(@id, 'accordion__heading-')]")
