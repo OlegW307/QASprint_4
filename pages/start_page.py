@@ -8,7 +8,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 class MainPage(BasePage):
 
-
     def open(self):
         self.driver.get("https://qa-scooter.praktikum-services.ru/")
 
@@ -34,7 +33,7 @@ class MainPage(BasePage):
     def amount_questions(self):
         return len(self.driver.find_elements(*HomePageLocators.ACCORDION_BUTTONS))
 
-    @allure.step('Проверяем открытие всех вопросов')
+    @allure.step('Проверяем открытие всех вопросов в одной сессии через цикл')
     def click_all_accordion_buttons_and_print_answers(self):
         buttons = self.driver.find_elements(*HomePageLocators.ACCORDION_BUTTONS)
         for button in buttons:
