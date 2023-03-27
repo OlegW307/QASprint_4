@@ -28,7 +28,7 @@ class MainPage:
         button.click()
         answer_id = button.get_attribute("aria-controls")
         answer = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.ID, answer_id)))
-        print(answer.text)
+        assert answer.text != '', "Answer text is empty"
 
     @allure.step('Считаем кол-во вопросов')
     def amount_questions(self):
@@ -45,8 +45,8 @@ class MainPage:
 
     def switch_to_order_page_top(self):
         button_switch = self.driver.find_element(*HomePageLocators.ORDER_TOP_BUTTON)
-        button_switch.clic()
+        button_switch.click()
 
     def switch_to_order_page_middle(self):
         button_switch = self.driver.find_element(*HomePageLocators.ORDER_MIDDLE_BUTTON)
-        button_switch.clic()
+        button_switch.click()

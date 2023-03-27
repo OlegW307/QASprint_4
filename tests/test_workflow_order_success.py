@@ -8,8 +8,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 @allure.description('Тест для браузера Chrome ')
 def test_order_input(browser):
-    browser.get("https://qa-scooter.praktikum-services.ru/order")
     order_page = OrderPage(browser)
+    order_page.open()
     order_page.enter_name()
     order_page.enter_surname()
     order_page.enter_address()

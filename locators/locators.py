@@ -31,7 +31,7 @@ class OrderPageLocators:
     METRO_STATION_LIST = (By.CLASS_NAME, "select-search__option")
 
     PHONE_INPUT = (By.XPATH, ".//input[@placeholder='* Телефон: на него позвонит курьер']")
-    NEXT_BUTTON = (By.CLASS_NAME, 'Button_Button__ra12g.Button_Middle__1CSJM')
+    NEXT_BUTTON = (By.XPATH, "//button[text()='Далее']")
 
     # второй экран формы
     DATE_INPUT = (By.CSS_SELECTOR, "div.react-datepicker__input-container > input")
@@ -51,5 +51,5 @@ class OrderPageLocators:
     ORDER_SUCCESS_MESSAGE = (By.CLASS_NAME, "Order_ModalHeader__3FDaJ")
 
     # логотипы
-    YANDEX_LOGO = (By.CSS_SELECTOR, "a.Header_LogoYandex__3TSOI")
-    SAMOKAT_LOGO = (By.XPATH, "//a[@class='Header_LogoScooter__3lsAR']")
+    YANDEX_LOGO = (By.CSS_SELECTOR, "a[href='//yandex.ru'] img")
+    SAMOKAT_LOGO = (By.XPATH, "//a[img[@alt='Scooter']]")

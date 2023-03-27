@@ -8,8 +8,8 @@ from pages.order_page import OrderPage
 
 @allure.description('Тест заказа Самоката для браузера FireFox ')
 def test_order_input(browser_fire):
-    browser_fire.get("https://qa-scooter.praktikum-services.ru/order")
     order_page = OrderPage(browser_fire)
+    order_page.open()
     order_page.remove_cookies()
     order_page.enter_name()
     order_page.enter_surname()
