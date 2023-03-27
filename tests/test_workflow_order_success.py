@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-@allure.description('Тест для браузера Chrome ')
+@allure.description('Тест для браузера Chrome')
 def test_order_input(browser):
     order_page = OrderPage(browser)
     order_page.open()
@@ -22,9 +22,7 @@ def test_order_input(browser):
     order_page.enter_comment()
     order_page.click_order_button()
     order_page.click_confirm_order_button()
-    element = WebDriverWait(browser, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "div.Order_ModalHeader__3FDaJ"))
-    )
+    element = order_page.find_element((By.CSS_SELECTOR, "div.Order_ModalHeader__3FDaJ"))
     try:
         assert "Заказ оформлен" in element.text
         assert "Номер заказа:" in element.text

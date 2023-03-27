@@ -3,11 +3,10 @@ import random
 import allure
 from generators import generate_name, generate_adress, generate_phone_number, date_to_order
 from locators.locators import OrderPageLocators
+from pages.base_page import BasePage
 
 
-class OrderPage:
-    def __init__(self, driver):
-        self.driver = driver
+class OrderPage(BasePage):
 
     def open(self):
         self.driver.get("https://qa-scooter.praktikum-services.ru/order")
@@ -84,4 +83,3 @@ class OrderPage:
     def go_to_scooter_home(self):
         logo_link = self.driver.find_element(*OrderPageLocators.SAMOKAT_LOGO)
         logo_link.click()
-        assert self.driver.current_url == "https://qa-scooter.praktikum-services.ru/"

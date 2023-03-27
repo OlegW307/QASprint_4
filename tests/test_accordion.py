@@ -9,4 +9,5 @@ def test_accordion_questions(browser):
     page.open()
     page.remove_cookies()
     page.scroll_to_accordion_section()
-    page.click_all_accordion_buttons_and_print_answers()
+    answer = page.click_all_accordion_buttons_and_print_answers()
+    assert answer != '', "Answer text is empty"

@@ -1,11 +1,10 @@
 import allure
 import pytest
+from locators.locators import HomePageLocators
 from pages.start_page import MainPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from locators.locators import HomePageLocators
-from .conftest import num_questions
 
 
 @allure.description('Отдельный тест на проверку открытия вопроса и печать ответа')

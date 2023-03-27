@@ -8,4 +8,5 @@ def test_accordion_questions(browser):
     page = MainPage(browser)
     page.open()
     page.scroll_to_accordion_section()
-    page.click_single_accordion_buttons()
+    answer = page.click_single_accordion_buttons()
+    assert answer.text != '', "Answer text is empty"

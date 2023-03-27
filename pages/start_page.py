@@ -1,13 +1,13 @@
 import allure
 from locators.locators import HomePageLocators, OrderPageLocators
+from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-class MainPage:
-    def __init__(self, driver):
-        self.driver = driver
+class MainPage(BasePage):
+
 
     def open(self):
         self.driver.get("https://qa-scooter.praktikum-services.ru/")
@@ -28,7 +28,7 @@ class MainPage:
         button.click()
         answer_id = button.get_attribute("aria-controls")
         answer = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.ID, answer_id)))
-        assert answer.text != '', "Answer text is empty"
+        return answer
 
     @allure.step('Считаем кол-во вопросов')
     def amount_questions(self):
@@ -41,7 +41,7 @@ class MainPage:
             button.click()
             answer_id = button.get_attribute("aria-controls")
             answer = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.ID, answer_id)))
-            print(answer.text)
+            return answer.text
 
     def switch_to_order_page_top(self):
         button_switch = self.driver.find_element(*HomePageLocators.ORDER_TOP_BUTTON)

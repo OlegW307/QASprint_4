@@ -1,9 +1,6 @@
 import allure
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
-
 from pages.order_page import OrderPage
+from selenium.webdriver.common.by import By
 
 
 @allure.description('Тест заказа Самоката для браузера FireFox ')
@@ -23,9 +20,7 @@ def test_order_input(browser_fire):
     order_page.enter_comment()
     order_page.click_order_button()
     order_page.click_confirm_order_button()
-    element = WebDriverWait(browser_fire, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "div.Order_ModalHeader__3FDaJ"))
-    )
+    element = order_page.find_element((By.CSS_SELECTOR, "div.Order_ModalHeader__3FDaJ"))
     assert "Заказ оформлен" in element.text
     assert "Номер заказа:" in element.text
     assert "Запишите его" in element.text
